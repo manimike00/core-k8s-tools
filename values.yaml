@@ -1,0 +1,6 @@
+cilium:
+  Namespace: kube-system
+  aksbyocni:
+    enabled: true
+  nodeinit:
+    enabled: true

@@ -1,0 +1,11 @@
+apiVersion: v2
+description: A Helm chart for Kubernetes
+name: common
+version: 1.0.0
+dependencies:
+#  - name: minio-operator
+#    repository: file://subcharts/minio-operator
+#    version: 4.3.7
+  - name: cilium
+    repository: file://subcharts/cilium/1.15.4
+    version: 1.15.4
