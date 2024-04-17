@@ -1,9 +1,35 @@
 cilium:
+  enabled: true
   Namespace: kube-system
   aksbyocni:
     enabled: true
   nodeinit:
     enabled: true
 
+karpenter:
+  enabled: false
+  Namespace: kube-system
+  settings:
+    azure:
+      clusterName: "dev-akspoc-rapyder"
+      clusterEndpoint: "https://dev-akspoc-rapyder-zonndpko.hcp.eastus.azmk8s.io:443"
+  serviceAccount:
+    name: karpenter-sa
+    annotations:
+      azure.workload.identity/client-id: 9c1f9087-a756-4806-8e11-54e4203564d9
+  controller:
+    resources:
+      requests:
+        cpu: 1
+        memory: 1Gi
+      limits:
+        cpu: 1
+        memory: 1Gi
+
 keda:
+  enabled: false
   Namespace: keda
+
+minio-operator:
+  enabled: false
+#  Namespace: minio-operator
