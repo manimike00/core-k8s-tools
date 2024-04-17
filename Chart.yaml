@@ -9,3 +9,6 @@ dependencies:
   - name: cilium
     repository: file://subcharts/cilium/1.15.4
     version: 1.15.4
+  - name: keda
+    repository: file://subcharts/keda/2.13.1
+    version: 2.13.1

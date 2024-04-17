@@ -4,3 +4,6 @@ cilium:
     enabled: true
   nodeinit:
     enabled: true
+
+keda:
+  Namespace: keda
