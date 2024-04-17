@@ -39,7 +39,7 @@ terraform.rc
 
 #####
 # Helm generated files
-*.helmignore
+#*.helmignore
 charts/
 #templates/*.yaml
 charts/*.tgz
