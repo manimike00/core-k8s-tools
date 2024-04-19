@@ -11,12 +11,12 @@ ingress-azure:
   Namespace: kube-system
   appgw:
     environment: AZUREPUBLICCLOUD
-    subscriptionId: 15e39dd4-0677-4bcd-bb45-d2deb5edda40
-    resourceGroup: dev-akspoc-rapyder
-    name: dev-akspoc-rapyder
+    subscriptionId:
+    resourceGroup:
+    name: 
   armAuth:
     type: workloadIdentity
-    identityClientID: "3dfe02ad-9e42-48f3-96b5-03c5b601da67"
+    identityClientID:
   rbac:
     enabled: true
 
