@@ -8,6 +8,10 @@ dependencies:
     repository: file://subcharts/cilium/1.15.4
     version: 1.15.4
     condition: cilium.enabled
+  - name: ingress-azure
+    repository: file://subcharts/ingress-azure/1.7.4
+    version: 1.7.4
+    condition: ingress-azure.enabled
   - name: karpenter
     repository: file://subcharts/karpenter/0.1.0
     version: 0.1.0
