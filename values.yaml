@@ -1,23 +1,36 @@
+blob-csi-driver:
+  enabled: false
+  Namespace: kube-system
+  workloadIdentity:
+    clientID: "45e1167a-6924-4a16-9c2d-cfc6f41ad882"
+
+ingress-azure:
+  enabled: false
+  Namespace: kube-system
+  appgw:
+    environment: AZUREPUBLICCLOUD
+    subscriptionId: ""
+    resourceGroup: "dev-akspoc-rapyder"
+    name: "dev-akspoc-rapyder"
+  armAuth:
+    type: workloadIdentity
+    identityClientID: ""
+  rbac:
+    enabled: true
+
+promtail:
+  enabled: true
+  Namespace: default
+#  config:
+#    extraScrapeConfigs: []
+      
+
 cilium:
   enabled: false
   Namespace: kube-system
   aksbyocni:
     enabled: true
   nodeinit:
-    enabled: true
-
-ingress-azure:
-  enabled: true
-  Namespace: kube-system
-  appgw:
-    environment: AZUREPUBLICCLOUD
-    subscriptionId:
-    resourceGroup:
-    name: 
-  armAuth:
-    type: workloadIdentity
-    identityClientID:
-  rbac:
     enabled: true
 
 karpenter:

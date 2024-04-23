@@ -4,22 +4,30 @@ name: core-k8s-tools
 version: 1.0.0
 appVersion: 1.0.0
 dependencies:
-  - name: cilium
-    repository: file://subcharts/cilium/1.15.4
-    version: 1.15.4
-    condition: cilium.enabled
+  - name: blob-csi-driver
+    repository: file://subcharts/blob-csi-driver/1.24.1
+    version: 1.24.1
+    condition: blob-csi-driver.enabled
   - name: ingress-azure
     repository: file://subcharts/ingress-azure/1.7.4
     version: 1.7.4
     condition: ingress-azure.enabled
-  - name: karpenter
-    repository: file://subcharts/karpenter/0.1.0
-    version: 0.1.0
-    condition: karpenter.enabled
+  - name: promtail
+    repository: file://subcharts/promtail/6.15.5
+    version: 6.15.5
+    condition: promtail.enabled
   - name: keda
     repository: file://subcharts/keda/2.13.2
     version: 2.13.2
     condition: keda.enabled
+  - name: cilium
+    repository: file://subcharts/cilium/1.15.4
+    version: 1.15.4
+    condition: cilium.enabled
+  - name: karpenter
+    repository: file://subcharts/karpenter/0.1.0
+    version: 0.1.0
+    condition: karpenter.enabled
   - name: minio-operator
     repository: file://subcharts/minio-operator/4.3.7
     version: 4.3.7
