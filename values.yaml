@@ -2,7 +2,7 @@ blob-csi-driver:
   enabled: false
   Namespace: kube-system
   workloadIdentity:
-    clientID: "45e1167a-6924-4a16-9c2d-cfc6f41ad882"
+    clientID: ""
 
 ingress-azure:
   enabled: false
@@ -10,20 +10,46 @@ ingress-azure:
   appgw:
     environment: AZUREPUBLICCLOUD
     subscriptionId: ""
-    resourceGroup: "dev-akspoc-rapyder"
-    name: "dev-akspoc-rapyder"
+    resourceGroup: ""
+    name: ""
   armAuth:
     type: workloadIdentity
     identityClientID: ""
   rbac:
     enabled: true
 
+loki-distributed:
+  enabled: true
+  Namespace: default
+  querier:
+    persistence:
+      enabled: false
+      size: 10Gi
+
 promtail:
   enabled: true
   Namespace: default
-#  config:
+  config:
+    clients:
+      - url: http://core-k8s-tools-loki-distributed-gateway/loki/api/v1/push
 #    extraScrapeConfigs: []
       
+grafana:
+  enabled: true
+  Namespace: default
+  adminUser: Grafanaadmin
+  adminPassword: Grafanaadmin
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+      - name: loki
+        type: loki
+        url: http://core-k8s-tools-loki-distributed-querier:3100
+        access: proxy
+        isDefault: false
+        jsonData:
+          tlsSkipVerify: true
 
 cilium:
   enabled: false
@@ -43,7 +69,7 @@ karpenter:
   serviceAccount:
     name: karpenter-sa
     annotations:
-      azure.workload.identity/client-id: 9c1f9087-a756-4806-8e11-54e4203564d9
+      azure.workload.identity/client-id: ""
   controller:
     resources:
       requests:

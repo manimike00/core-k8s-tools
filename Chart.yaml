@@ -16,6 +16,14 @@ dependencies:
     repository: file://subcharts/promtail/6.15.5
     version: 6.15.5
     condition: promtail.enabled
+  - name: loki-distributed
+    repository: file://subcharts/loki-distributed/0.79.0
+    version: 0.79.0
+    condition: loki-distributed.enabled
+  - name: grafana
+    repository: file://subcharts/grafana/7.3.9
+    version: 7.3.9
+    condition: grafana.enabled
   - name: keda
     repository: file://subcharts/keda/2.13.2
     version: 2.13.2
